@@ -22,7 +22,7 @@ stages{
             post {
                 success {
                     echo 'Now Archiving starts here...'
-                    archiveArtifacts artifacts: 'target/*.war'
+                    archiveArtifacts artifacts: '**/target/*.war'
                 }
             }
         }
@@ -31,13 +31,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging environment'){
                     steps {
-                        bat "pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.pem **/target/*.war ec2-user@${params.tomcat_staging}:/var/lib/tomcat7/webapps"
+                        bat "pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.pem **\\target\\*.war ec2-user@${params.tomcat_staging}:/var/lib/tomcat7/webapps"
                     }
                 }
 
                 stage ("Deploy to Production environment"){
                     steps {
-                        bat "pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
+                        bat "pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.pem **\\target\\*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
                     }
                 }
             }
