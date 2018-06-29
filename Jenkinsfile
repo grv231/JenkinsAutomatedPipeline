@@ -31,7 +31,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging environment'){
                     steps {
-                        bat "echo y | pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.ppk C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\.war ec2-user@${params.tomcat_staging}:/var/lib/tomcat7/webapps"
+                        bat "echo y | pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.ppk C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\*.war ec2-user@${params.tomcat_staging}:/var/lib/tomcat7/webapps"
                     }
                 }
 
