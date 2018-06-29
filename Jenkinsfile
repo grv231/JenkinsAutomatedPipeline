@@ -17,7 +17,7 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
             post {
                 success {
@@ -31,13 +31,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging environment'){
                     steps {
-                        sh "scp -i /c/Users/grvtr/Desktop/Project/AlternativeFiles/Redis-Key.pem **/target/*.war ec2-user@${params.tomcat_staging}:/var/lib/tomcat7/webapps"
+                        bat "pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.pem **/target/*.war ec2-user@${params.tomcat_staging}:/var/lib/tomcat7/webapps"
                     }
                 }
 
                 stage ("Deploy to Production environment"){
                     steps {
-                        sh "scp -i /c/Users/grvtr/Desktop/Project/AlternativeFiles/Redis-Key.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
+                        bat "pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
                     }
                 }
             }
