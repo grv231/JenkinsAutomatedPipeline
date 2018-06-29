@@ -31,13 +31,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging environment'){
                     steps {
-                        bat "echo y | pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.pem C:\\Program Files (x86)\\Jenkins\\workspace\\FullyAutomatedPipeline\\webapp\\target\\*.war ec2-user@${params.tomcat_staging}:/var/lib/tomcat7/webapps"
+                        bat "echo y | pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.ppk C:\\Program Files (x86)\\Jenkins\\workspace\\FullyAutomatedPipeline\\webapp\\target\\*.war ec2-user@${params.tomcat_staging}:/var/lib/tomcat7/webapps"
                     }
                 }
 
                 stage ("Deploy to Production environment"){
                     steps {
-                        bat "echo y | pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.pem C:\\Program Files (x86)\\Jenkins\\workspace\\FullyAutomatedPipeline\\webapp\\target\\*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
+                        bat "echo y | pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.ppk C:\\Program Files (x86)\\Jenkins\\workspace\\FullyAutomatedPipeline\\webapp\\target\\*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
                     }
                 }
             }
