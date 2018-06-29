@@ -37,7 +37,7 @@ stages{
 
                 stage ("Deploy to Production environment"){
                     steps {
-                        bat "pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.pem **\\target\\*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
+                        bat "pscp -i C:\\Users\\grvtr\\Desktop\\Project\\AlternativeFiles\\Redis-Key.pem C:\\Program Files (x86)\\Jenkins\\workspace\\FullyAutomatedPipeline\\webapp\\target\\*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
                     }
                 }
             }
