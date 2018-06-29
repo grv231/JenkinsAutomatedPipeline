@@ -22,7 +22,7 @@ stages{
             post {
                 success {
                     echo 'Now Archiving starts here...'
-                    archiveArtifacts artifacts: '**/target/*.war'
+                    archiveArtifacts artifacts: 'target/*.war'
                 }
             }
         }
